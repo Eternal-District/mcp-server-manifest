@@ -7,17 +7,95 @@ An MCP server for dining restaurant discovery, table reservations, and movie dis
 
 ### 🍽️ Dining
 
-- 🔍 **Restaurant Discovery** – Search for dining restaurants near you using semantic search, with smart filters for cuisine, rating, and more.
-- 📋 **Restaurant Details** – Get comprehensive details about any restaurant including ratings, timings, address, reviews, and highlights.
-- 📅 **Table Reservations** – Check available time slots and book a table at your favorite restaurants, with exclusive offers.
-- 🍽️ **Booking Management** – Track your reservation status and get booking confirmations.
+- 🔍 **Restaurant Discovery** – Tell it what you're craving and where you are — it finds the best options nearby.
+- 📅 **Table Reservations** – Check open slots and book a table at your favourite restaurant, with exclusive offers included.
+- 🍽️ **Booking Management** – Track your reservation and get confirmation, all in one place.
 
 ### 🎬 Movies & Entertainment
 
-- 🎥 **Movie Search** – Discover movies currently playing in theaters or upcoming releases, filtered by genre, language, cast, and more.
-- 🏢 **Theatre Search** – Find nearby theaters with details on amenities, screen types (IMAX, 4DX, Dolby Atmos), and distance.
-- 🕐 **Showtime Search** – Get specific showtimes, seat availability, and pricing for any movie at any theater.
-- ⭐ **Movie Reviews** – Get critic reviews and ratings for any movie to help you decide what's worth watching.
+- 🎥 **Movie Search** – Find what's playing or coming soon — by genre, language, cast, or anything else you have in mind.
+- 🏢 **Theatre Search** – Discover nearby theatres with screen formats (IMAX, 4DX, SCREEN X) and amenities.
+- 🕐 **Showtime Search** – Get showtimes, seat categories, and ticket prices for any movie at any theatre.
+- ⭐ **Movie Reviews** – Read critic reviews and ratings before you decide what to watch.
+
+## Use Cases
+
+### 🍽️ Dining
+
+**Spontaneous Dining Discovery**
+> "Find me the best-rated restaurants near Koramangala open right now"
+
+Just say where you are and what you want — it finds top-rated restaurants nearby, instantly.
+
+**Occasion-Based Restaurant Planning**
+> "Find a romantic rooftop restaurant for a date night in Bandra, Mumbai"
+
+Planning a date night or a birthday dinner? Describe the vibe — rooftop, cozy, outdoor — and it'll match you with the right place.
+
+**Cuisine & Diet Exploration**
+> "Show me vegan-friendly Italian restaurants near Indiranagar, Bangalore"
+
+Want vegan? Italian? Both? Just ask — it'll find restaurants that match exactly.
+
+**Last-Minute Table Booking**
+> "Any tables available tonight for 2 near MG Road?"
+
+Need a table tonight? Check what's open right now and book it — any active offers are included automatically.
+
+**Group Outing Coordination**
+> "Book a table for 8 at a restaurant with a private dining area near Cyber Hub, Gurugram for Saturday evening"
+
+Going out with a large group? Find a place that fits everyone, check if there's a slot, and book — without the back and forth.
+
+---
+
+### 🎬 Movies & Entertainment
+
+**Movie Discovery by Preference**
+> "What Hindi action movies are playing near Whitefield, Bangalore this weekend?"
+
+Tell it the language, genre, or actor you're in the mood for — it'll show you what's playing now or coming up soon.
+
+**Premium Format Show Finding**
+> "Find SCREEN X shows for Raja Shivaji near Connaught Place, Delhi"
+
+Want to watch a specific movie in SCREEN X or IMAX? Find exactly which nearby theatres have it — no manual searching across theatres.
+
+**Showtime & Seat Price Lookup**
+> "What are the evening showtimes and ticket prices for Bhooth Bangla near Andheri, Mumbai?"
+
+Know exactly when a movie is playing, which seats are available, and what they cost — before you even open a booking app.
+
+**Critic Review Deep-Dive**
+> "Is Dhurandhar The Revenge worth watching? Show me critic reviews"
+
+Not sure if a movie is worth your time? Read what the critics say before you buy the ticket.
+
+**Theatre Discovery**
+> "Find theatres near Koramangala"
+
+Find theatres near you and see what each one offers — screen formats, recliner seats, parking, food options, and more.
+
+**Family & Kids Movie Planning**
+> "Find UA13+ comedy movies playing near Jayanagar, Bangalore"
+
+Planning a family outing? Pick an age rating and genre, and find a movie everyone will enjoy — with showtimes near you.
+
+---
+
+### 🗓️ End-to-End Evening Planning
+
+**Full Evening Out (Movie + Dinner)**
+> "Plan a movie and dinner evening near Bandra for 2 — good Hindi movie and a nice restaurant after"
+
+Pick a movie, lock in a showtime, then find a good restaurant nearby for dinner after — and book the table too, all in one go.
+
+**Weekend Group Outing**
+> "Plan a Saturday afternoon for 4 people near Cyber Hub — movie and dinner"
+
+Find a movie with afternoon shows, pick a spot for lunch or dinner nearby, and get the table booked — the whole Saturday sorted in one conversation.
+
+---
 
 ## Installation Guide
 
@@ -79,25 +157,6 @@ Add this to your `mcp.json` file.
     }
     ```
 
-## Example Prompts
-
-Get started with these example prompts to explore what the District MCP server can do:
-
-### Dining
-- "Find the best rated restaurants near Koramangala, Bangalore"
-- "Show me Italian restaurants in Connaught Place, Delhi"
-- "Restaurants with outdoor seating near Indiranagar, Bangalore"
-- "Find a romantic restaurant for a date night in Bandra, Mumbai"
-- "Show me restaurants with live music near Cyber Hub, Gurugram"
-- "Book a table for 2 at a restaurant near Koramangala for Saturday"
-
-### Movies
-- "What movies are playing near Koramangala, Bangalore?"
-- "Find theaters near Cyber Hub, Gurugram"
-- "Show me showtimes for Goat in English near Koramangala"
-- "What are the ticket prices for Border 2 near Indiranagar?"
-- "Show me upcoming English movies near me"
-- "Find comedy movies playing near Koramangala, Bangalore"
 
 ## Future Scope
 
