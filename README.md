@@ -1,12 +1,25 @@
 
 # District MCP Server
 
-Add District to your AI app and ask the way you'd ask a friend. It finds movie shows, restaurant tables, events, sports courts and salon slots, books the one you pick and starts the UPI payment. It checks with you before anything goes through.
+An MCP server for movie shows, restaurant tables, events, activities, sports courts and salon appointments, powered by District.
 
 - **Endpoint:** `https://mcp-server.district.in/v2/mcp` (Streamable HTTP)
 - **Sign-in:** District mobile number and OTP, or start as a guest and log in when you book
 - **Works with:** Claude, ChatGPT, Cursor, VS Code and Claude Code
 - **Website:** [studio.district.in/mcp](https://studio.district.in/mcp/)
+
+## Tools
+
+Everything runs through four core tools. Your assistant finds what it needs with `search`, then calls the tool that result names.
+
+| Tool | What it does |
+|---|---|
+| `search` | Finds the District operations and recipes that answer the request. Always called first; each result says which tool to call next and with what arguments. |
+| `execute` | Runs a read-only operation: shows, slots, menus, prices, offers and your bookings. It never books, pays or changes anything. |
+| `act` | Runs an operation that changes something: holds seats or a court, books, cancels or saves to a list. It runs only after you confirm. |
+| `pay` | Starts the UPI payment for a booking or bill, with the method you picked. It runs only after you confirm the amount and method. |
+
+Supporting tools: `pay` comes with `payment_options` (your saved UPI IDs or a UPI QR) and `payment_status` (checks whether the payment went through). Signing in from the chat uses `generate_otp`, `resend_otp` and `validate_otp`.
 
 ## What it can do
 
@@ -40,19 +53,19 @@ Concerts, comedy, workshops and weekend plans. See dates and ticket prices, then
 
 ### 🎾 Sports
 
-Find a turf or a court, see what's free and book it for as long as you want to play.
+Find a turf or a court, see what's available and book it for as long as you want to play.
 
 - 📍 **Find a court** – Turfs, badminton and pickleball courts, box cricket and more. See the sports, courts and prices at a venue.
-- 🕐 **Free slots** – Free time slots and courts for a sport, on the date and for as long as you want to play.
+- 🕐 **Available slots** – Open time slots and courts for a sport, on the date and for as long as you want to play.
 - 📅 **Book a court** – Hold the court and slot, add equipment or a promo code, and pay with UPI.
 - ❌ **Cancel a court booking** – See the venue's cancellation policy and your refund, then cancel.
 
 ### 💇 Salons
 
-See services and prices, pick a free slot and book. Pay the bill from the chat after your visit.
+See services and prices, pick an available slot and book. Pay the bill from the chat after your visit.
 
 - 🔍 **Services and prices** – A salon's service menu with prices, plus its location, hours, rating and offers.
-- 🕐 **Appointment slots** – The dates and time slots that are free, and which stylists are in.
+- 🕐 **Appointment slots** – The dates and time slots that are open, and which stylists are in.
 - 📅 **Book an appointment** – Price the services, then pay the booking amount with UPI. It comes off your bill at the salon.
 - 💳 **Pay the salon bill** – After your visit, pay the bill from the chat. Any booking amount you paid is taken off.
 
@@ -66,16 +79,7 @@ Ask about what you've booked. Your tickets, refunds, lists and reminders, withou
 
 ## Recipes
 
-Booking seats or paying a bill takes a few steps. A recipe is the route District gives your assistant for one of these tasks, so it does the steps in the right order and checks with you before anything is final.
-
-**How your assistant uses District**
-
-| Tool | What it does |
-|---|---|
-| `search` | Finds the right operation or recipe |
-| `execute` | Reads shows, slots and prices |
-| `act` | Holds, books or cancels after you say yes |
-| `pay` | Starts a UPI payment you approve |
+Booking seats or paying a bill takes a few steps. A recipe is the route District gives your assistant for one of these tasks, so it does the steps in the right order and checks with you before anything is final. `search` returns recipes alongside operations, and each step names the [tool](#tools) it uses.
 
 ### Book
 
@@ -88,7 +92,7 @@ Find the movie → Pick a show → Choose seats → Hold them → Final price �
 **Book a table** (`recipe.book_table`)
 > "Table for 4 at 8 pm on Saturday near Indiranagar"
 
-Find the restaurant, pick a time and party size, and check the bill. A free booking is confirmed straight away. If it needs a payment, you pay with UPI.
+Find the restaurant, pick a time and party size, and check the bill. If the booking needs no payment, it's confirmed straight away. If it does, you pay with UPI.
 Find the restaurant → Open slots → Check the bill → Book → Pay if needed
 
 **Book event tickets** (`recipe.book_event_tickets`)
@@ -107,13 +111,13 @@ Find the activity → Pick a date → Pick a slot → Hold tickets → Pay with 
 > "Book a badminton court near HSR Layout for an hour at 7 am tomorrow"
 
 Turf, badminton, pickleball or box cricket. Pick the sport, date, duration, time and court, then pay.
-Find the venue → Free slots → Hold the court → Pay with UPI
+Find the venue → Available slots → Hold the court → Pay with UPI
 
 **Book a salon appointment** (`recipe.book_salon`)
 > "Haircut and beard trim near Koramangala on Sunday morning"
 
-Pick the services and a free slot with the best available stylist. You pay a booking amount now, and it comes off your bill at the salon.
-Find the salon → Pick services → Free slot → Price it → Pay with UPI
+Pick the services and an open slot with the best available stylist. You pay a booking amount now, and it comes off your bill at the salon.
+Find the salon → Pick services → Available slot → Price it → Pay with UPI
 
 ### Pay
 
@@ -131,17 +135,17 @@ Find the store → Price the bill → Pay with UPI
 
 ### Find
 
-**Find a free court** (`recipe.find_play_slot`)
-> "Any football turf free near Andheri tonight?"
+**Find an available court** (`recipe.find_play_slot`)
+> "Any football turf available near Andheri tonight?"
 
-See which sports a venue has and its free slots for a date. To book one, it moves on to the sports court recipe.
-Find the venue → Sports and courts → Free slots
+See which sports a venue has and its open slots for a date. To book one, it moves on to the sports court recipe.
+Find the venue → Sports and courts → Available slots
 
 **Find a salon slot** (`recipe.find_salon_slot`)
 > "When can I get a manicure near Bandra this week?"
 
-Find a salon, the service you want and its free time slots.
-Find the salon → Pick the service → Free slots
+Find a salon, the service you want and its open time slots.
+Find the salon → Pick the service → Available slots
 
 ### Manage
 
