@@ -79,7 +79,7 @@ Ask about what you've booked. Your tickets, refunds, lists and reminders, withou
 
 ## Recipes
 
-Booking seats or paying a bill takes a few steps. A recipe is the route District gives your assistant for one of these tasks, so it does the steps in the right order and checks with you before anything is final. `search` returns recipes alongside operations, and each step names the [tool](#tools) it uses.
+A recipe is a set of steps for a multi-step task, such as booking movie tickets or paying a bill. `search` returns recipes along with operations. Each step names the [tool](#tools) it uses.
 
 ### Book
 
