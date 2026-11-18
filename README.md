@@ -19,7 +19,7 @@ Everything runs through four core tools. Your assistant finds what it needs with
 | `act` | Runs an operation that changes something: holds seats or a court, books, cancels or saves to a list. It runs only after you confirm. |
 | `pay` | Starts the UPI payment for a booking or bill, with the method you picked. It runs only after you confirm the amount and method. |
 
-Supporting tools: `pay` comes with `payment_options` (your saved UPI IDs or a UPI QR) and `payment_status` (checks whether the payment went through). Signing in from the chat uses `generate_otp`, `resend_otp` and `validate_otp`.
+Supporting tools: `pay` comes with `payment_options` (the UPI QR to pay with) and `payment_status` (checks whether the payment went through). Signing in from the chat uses `generate_otp`, `resend_otp` and `validate_otp`.
 
 ## What it can do
 
@@ -289,7 +289,7 @@ It connects District to AI apps like Claude and ChatGPT. MCP (Model Context Prot
 No. You can start as a guest and look around. To book, pay or see your bookings, log in with your mobile number and an OTP, either on the sign-in page or later from the chat.
 
 **How do bookings and payments work?**
-Before it books or pays, your assistant shows you what it's about to do and waits for your yes. You pay with a saved UPI ID or by scanning a UPI QR; cards, netbanking and wallets are in the District app. Cancellations go through only when your AI app asks you to confirm them; otherwise you cancel in the District app.
+Before it books or pays, your assistant shows you what it's about to do and waits for your yes. You pay by scanning a UPI QR; cards, netbanking and wallets are in the District app. Cancellations go through only when your AI app asks you to confirm them; otherwise you cancel in the District app.
 
 **How do I report a problem or share feedback?**
 Use the feedback form at [studio.district.in/mcp](https://studio.district.in/mcp/#feedback) or write to [developers@district.in](mailto:developers@district.in). Include the prompt you used and what came back so we can look into it quickly.
