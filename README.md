@@ -1,105 +1,185 @@
 
 # District MCP Server
 
-An MCP server for dining restaurant discovery, table reservations, and movie discovery — powered by District.
+Add District to your AI app and ask the way you'd ask a friend. It finds movie shows, restaurant tables, events, sports courts and salon slots, books the one you pick and starts the UPI payment. It checks with you before anything goes through.
 
-## Supported Features
+- **Endpoint:** `https://mcp-server.district.in/v2/mcp` (Streamable HTTP)
+- **Sign-in:** District mobile number and OTP, or start as a guest and log in when you book
+- **Works with:** Claude, ChatGPT, Cursor, VS Code and Claude Code
+- **Website:** [studio.district.in/mcp](https://studio.district.in/mcp/)
+
+## What it can do
+
+It asks you before it books, pays or cancels.
+
+### 🎬 Movies
+
+Find what's showing, pick a show and seats, add popcorn, apply an offer and pay. All in the chat.
+
+- 🔍 **Movies and showtimes** – What's showing near you, by language, genre or format, with show times, seat prices and how many seats are left.
+- ⭐ **Movie and cinema details** – Cast, runtime, certificate, ratings and synopsis. For a cinema: its screens, amenities and policies.
+- 🎟️ **Book movie seats** – Pick seats from the live seat map and hold them. Add food, apply a promo code or District Money, then pay with UPI.
+- 🏷️ **Ticket offers** – Promo codes, bank offers and rewards for a movie, a cinema or the show you picked.
 
 ### 🍽️ Dining
 
-- 🔍 **Restaurant Discovery** – Tell it what you're craving and where you are — it finds the best options nearby.
-- 📅 **Table Reservations** – Check open slots and book a table at your favourite restaurant, with exclusive offers included.
-- 🍽️ **Booking Management** – Track your reservation and get confirmation, all in one place.
+Tell it what you're craving and where. It finds places, books a table and pays the bill when you're done.
 
-### 🎬 Movies & Entertainment
+- 🔍 **Find a restaurant** – Search by name or browse places to eat near you, with ratings, cost for two, opening hours, menus, reviews and offers.
+- 📅 **Book a table** – See open slots for your party size, check the bill, then book. If the table needs an online payment, pay it with UPI.
+- 💳 **Pay the bill** – Pay at the restaurant from the chat, with the best offer and your DineCoins if you have any.
+- 📋 **Manage table bookings** – Check a reservation, or cancel it and see what's refunded.
 
-- 🎥 **Movie Search** – Find what's playing or coming soon — by genre, language, cast, or anything else you have in mind.
-- 🏢 **Theatre Search** – Discover nearby theatres with screen formats (IMAX, 4DX, SCREEN X) and amenities.
-- 🕐 **Showtime Search** – Get showtimes, seat categories, and ticket prices for any movie at any theatre.
-- ⭐ **Movie Reviews** – Read critic reviews and ratings before you decide what to watch.
+### 🎭 Events & activities
 
-## Use Cases
+Concerts, comedy, workshops and weekend plans. See dates and ticket prices, then book.
 
-### 🍽️ Dining
+- 🔍 **Find something to do** – Concerts, comedy, parties, workshops and more near you. Browse by mood, or look up an artist or a venue.
+- 🕐 **Dates and tickets** – An event's schedule, ticket types and prices. For activities, the open dates and time slots.
+- 🎟️ **Book event tickets** – Hold the tickets you want in the cart, see the total and pay with UPI.
 
-**Spontaneous Dining Discovery**
-> "Find me the best-rated restaurants near Koramangala open right now"
+### 🎾 Sports
 
-Just say where you are and what you want — it finds top-rated restaurants nearby, instantly.
+Find a turf or a court, see what's free and book it for as long as you want to play.
 
-**Occasion-Based Restaurant Planning**
-> "Find a romantic rooftop restaurant for a date night in Bandra, Mumbai"
+- 📍 **Find a court** – Turfs, badminton and pickleball courts, box cricket and more. See the sports, courts and prices at a venue.
+- 🕐 **Free slots** – Free time slots and courts for a sport, on the date and for as long as you want to play.
+- 📅 **Book a court** – Hold the court and slot, add equipment or a promo code, and pay with UPI.
+- ❌ **Cancel a court booking** – See the venue's cancellation policy and your refund, then cancel.
 
-Planning a date night or a birthday dinner? Describe the vibe — rooftop, cozy, outdoor — and it'll match you with the right place.
+### 💇 Salons
 
-**Cuisine & Diet Exploration**
-> "Show me vegan-friendly Italian restaurants near Indiranagar, Bangalore"
+See services and prices, pick a free slot and book. Pay the bill from the chat after your visit.
 
-Want vegan? Italian? Both? Just ask — it'll find restaurants that match exactly.
+- 🔍 **Services and prices** – A salon's service menu with prices, plus its location, hours, rating and offers.
+- 🕐 **Appointment slots** – The dates and time slots that are free, and which stylists are in.
+- 📅 **Book an appointment** – Price the services, then pay the booking amount with UPI. It comes off your bill at the salon.
+- 💳 **Pay the salon bill** – After your visit, pay the bill from the chat. Any booking amount you paid is taken off.
 
-**Last-Minute Table Booking**
-> "Any tables available tonight for 2 near MG Road?"
+### 👤 Your bookings
 
-Need a table tonight? Check what's open right now and book it — any active offers are included automatically.
+Ask about what you've booked. Your tickets, refunds, lists and reminders, without opening the app.
 
-**Group Outing Coordination**
-> "Book a table for 8 at a restaurant with a private dining area near Cyber Hub, Gurugram for Saturday evening"
+- 📋 **Your bookings** – All your District bookings, and the details of any one of them.
+- 🎟️ **Movie tickets and refunds** – Your ticket and entry QR for a show, or how much comes back if you cancel. Cancelling a movie ticket is done in the District app.
+- ➕ **Lists and reminders** – Save restaurants, events and more to your Hotlist or your own lists, and see your movie reminders.
 
-Going out with a large group? Find a place that fits everyone, check if there's a slot, and book — without the back and forth.
+## Recipes
 
----
+Booking seats or paying a bill takes a few steps. A recipe is the route District gives your assistant for one of these tasks, so it does the steps in the right order and checks with you before anything is final.
 
-### 🎬 Movies & Entertainment
+**How your assistant uses District**
 
-**Movie Discovery by Preference**
-> "What Hindi action movies are playing near Whitefield, Bangalore this weekend?"
+| Tool | What it does |
+|---|---|
+| `search` | Finds the right operation or recipe |
+| `execute` | Reads shows, slots and prices |
+| `act` | Holds, books or cancels after you say yes |
+| `pay` | Starts a UPI payment you approve |
 
-Tell it the language, genre, or actor you're in the mood for — it'll show you what's playing now or coming up soon.
+### Book
 
-**Premium Format Show Finding**
-> "Find SCREEN X shows for Raja Shivaji near Connaught Place, Delhi"
+**Book movie tickets** (`recipe.book_movie_tickets`)
+> "Book 2 seats for an evening show near Andheri tonight"
 
-Want to watch a specific movie in SCREEN X or IMAX? Find exactly which nearby theatres have it — no manual searching across theatres.
+Pick the movie, the show and your seats. The seats are held while you add food or an offer, then you pay with UPI.
+Find the movie → Pick a show → Choose seats → Hold them → Final price → Pay with UPI
 
-**Showtime & Seat Price Lookup**
-> "What are the evening showtimes and ticket prices for Bhooth Bangla near Andheri, Mumbai?"
+**Book a table** (`recipe.book_table`)
+> "Table for 4 at 8 pm on Saturday near Indiranagar"
 
-Know exactly when a movie is playing, which seats are available, and what they cost — before you even open a booking app.
+Find the restaurant, pick a time and party size, and check the bill. A free booking is confirmed straight away. If it needs a payment, you pay with UPI.
+Find the restaurant → Open slots → Check the bill → Book → Pay if needed
 
-**Critic Review Deep-Dive**
-> "Is Dhurandhar The Revenge worth watching? Show me critic reviews"
+**Book event tickets** (`recipe.book_event_tickets`)
+> "2 tickets for a stand-up show in Bengaluru this Saturday"
 
-Not sure if a movie is worth your time? Read what the critics say before you buy the ticket.
+Concerts, comedy, parties and festivals. Pick the show and ticket types, hold them in the cart and pay with UPI.
+Find the event → Dates and tickets → Hold tickets → Pay with UPI
 
-**Theatre Discovery**
-> "Find theatres near Koramangala"
+**Book an activity** (`recipe.book_activity`)
+> "Find a pottery workshop next Sunday and book one spot"
 
-Find theatres near you and see what each one offers — screen formats, recliner seats, parking, food options, and more.
+Workshops, classes and experiences. Pick a date and a time slot, even beyond the next week, then hold tickets and pay.
+Find the activity → Pick a date → Pick a slot → Hold tickets → Pay with UPI
 
-**Family & Kids Movie Planning**
-> "Find UA13+ comedy movies playing near Jayanagar, Bangalore"
+**Book a sports court** (`recipe.book_play_slot`)
+> "Book a badminton court near HSR Layout for an hour at 7 am tomorrow"
 
-Planning a family outing? Pick an age rating and genre, and find a movie everyone will enjoy — with showtimes near you.
+Turf, badminton, pickleball or box cricket. Pick the sport, date, duration, time and court, then pay.
+Find the venue → Free slots → Hold the court → Pay with UPI
 
----
+**Book a salon appointment** (`recipe.book_salon`)
+> "Haircut and beard trim near Koramangala on Sunday morning"
 
-### 🗓️ End-to-End Evening Planning
+Pick the services and a free slot with the best available stylist. You pay a booking amount now, and it comes off your bill at the salon.
+Find the salon → Pick services → Free slot → Price it → Pay with UPI
 
-**Full Evening Out (Movie + Dinner)**
-> "Plan a movie and dinner evening near Bandra for 2 — good Hindi movie and a nice restaurant after"
+### Pay
 
-Pick a movie, lock in a showtime, then find a good restaurant nearby for dinner after — and book the table too, all in one go.
+**Pay a restaurant bill** (`recipe.pay_bill`)
+> "Pay my ₹1,850 bill here with the best offer"
 
-**Weekend Group Outing**
-> "Plan a Saturday afternoon for 4 people near Cyber Hub — movie and dinner"
+After your meal, pay the bill from the chat. It looks for the best offer and uses your DineCoins if you want.
+Find the restaurant → Price the bill → Pick an offer → Pay with UPI → Confirm it went through
 
-Find a movie with afternoon shows, pick a spot for lunch or dinner nearby, and get the table booked — the whole Saturday sorted in one conversation.
+**Pay a salon bill** (`recipe.pay_salon_bill`)
+> "Pay my salon bill of ₹1,200"
 
----
+After your visit, pay the salon or another District store from the chat. A booking amount you already paid is taken off.
+Find the store → Price the bill → Pay with UPI
+
+### Find
+
+**Find a free court** (`recipe.find_play_slot`)
+> "Any football turf free near Andheri tonight?"
+
+See which sports a venue has and its free slots for a date. To book one, it moves on to the sports court recipe.
+Find the venue → Sports and courts → Free slots
+
+**Find a salon slot** (`recipe.find_salon_slot`)
+> "When can I get a manicure near Bandra this week?"
+
+Find a salon, the service you want and its free time slots.
+Find the salon → Pick the service → Free slots
+
+### Manage
+
+**Show my movie ticket** (`recipe.show_movie_ticket`)
+> "Show my ticket for tonight's movie"
+
+Finds your booking and shows the show, seats, screen and the entry QR text.
+Your bookings → Ticket and QR
+
+**Check a movie refund** (`recipe.movie_refund_check`)
+> "If I cancel my movie tickets for tomorrow, how much do I get back?"
+
+Tells you if a ticket can still be cancelled and how much comes back. You cancel it in the District app.
+Your bookings → Refund quote
+
+**Cancel a table booking** (`recipe.cancel_table_booking`)
+> "Cancel my table booking for Friday"
+
+Checks the booking can still be cancelled and what's refunded, then cancels it once you confirm.
+Your bookings → Can it be cancelled? → Cancel
+
+**Cancel a court booking** (`recipe.cancel_play_booking`)
+> "Cancel my badminton booking for tomorrow morning"
+
+Checks the venue's cancellation policy and your refund, and cancels only after you agree.
+Your bookings → Policy and refund → Cancel
+
+**Save to a list** (`recipe.save_to_list`)
+> "Save this restaurant to my Hotlist"
+
+Saves a restaurant, event, movie, cinema, store or artist to your Hotlist or one of your lists.
+Find it → Pick a list → Save
 
 ## Installation Guide
 
-⚠️ **OAuth Redirect URI Warning:** Currently, we have only whitelisted the following redirect URIs for OAuth authentication. Please reach out to us to enable your client:
+Your app opens District sign-in in the browser. Log in with your mobile number and OTP, or continue as a guest. Never put tokens in a config file.
+
+⚠️ **OAuth redirect URIs:** Only the following redirect URIs are currently allowed for sign-in. Other apps can't sign in until District enables them, so write to [developers@district.in](mailto:developers@district.in) if you need one:
 - `claude://claude.ai/settings/connectors`
 - `https://chatgpt.com/connector_platform_oauth_redirect`
 - `https://claude.ai/api/mcp/auth_callback`
@@ -107,69 +187,111 @@ Find a movie with afternoon shows, pick a spot for lunch or dinner nearby, and g
 - `https://oauth.pstmn.io/v1/callback`
 - `https://vscode.dev/redirect`
 
-### Install on VS Code
+### Claude
 
-<b>One Click Installation</b>
+Add District as a custom connector. Availability depends on your Claude plan. No config file.
 
-[![Install MCP](https://img.shields.io/badge/Install-DistrictMCP-E23744)](https://insiders.vscode.dev/redirect?url=vscode:mcp/install?%7B%22type%22%3A%22http%22%2C%22name%22%3A%22District%20MCP%20Server%22%2C%22version%22%3A%220.0.1%22%2C%22description%22%3A%22MCP%20server%20to%20interact%20with%20District%20services%22%2C%22url%22%3A%22https%3A%2F%2Fmcp-server.district.in%2Fmcp%22%2C%22author%22%3A%22District%22%2C%22tags%22%3A%5B%22district-mcp%22%2C%22mcp%22%2C%22server%22%5D%2C%22categories%22%3A%5B%22mcp%22%5D%7D)
+1. Open Claude and go to **Settings → Connectors**.
+2. Choose **Add custom connector**.
+3. Name it `District` and paste the endpoint: `https://mcp-server.district.in/v2/mcp`
+4. Connect, and sign in with District when asked.
 
-<b>Manual Installation</b>
+<b>Using manual configuration (Claude Desktop, available on the free plan)</b>
 
-Add this to your `mcp.json` file.
-
-```json
-{
-    "servers": {
-        "district-mcp-server": {
-            "url": "https://mcp-server.district.in/mcp",
-            "type": "http"
-        }
-    }
-}
-```
-
-
-### Install on Claude
-
-<b> Using Connectors (Requires claude subscription) </b>
-1. Open Claude
-2. Go to Settings -> Connectors -> Add custom connector
-3. Use the URL: `https://mcp-server.district.in/mcp`
-4. Save and Restart Claude
-
-
-<b> Using Manual Configuration (Available on free plan) </b>
-1. Open Claude
-2. Go to Settings -> Developer -> Edit Config
-3. Open `claude_desktop_config.json` in a text editor.
-4. Add the following configuration:
+1. Open Claude and go to **Settings → Developer → Edit Config**.
+2. Open `claude_desktop_config.json` in a text editor.
+3. Add the following configuration:
     ```json
     {
         "mcpServers": {
-            "district-mcp-server": {
+            "district": {
                 "command": "npx",
                 "args": [
                     "mcp-remote",
-                    "https://mcp-server.district.in/mcp"
+                    "https://mcp-server.district.in/v2/mcp"
                 ]
             }
         }
     }
     ```
+4. Save and restart Claude.
 
+### ChatGPT
 
-## Future Scope
+Add District as a custom connector. Availability depends on your ChatGPT plan. No config file.
 
-Our vision is to make District MCP the ultimate destination for going-out discovery. We're actively working on expanding it with the following capabilities:
+1. Open ChatGPT and go to **Settings → Apps & Connectors**.
+2. Add a custom connector named `District` and paste the endpoint: `https://mcp-server.district.in/v2/mcp`
+3. Sign in with District when asked.
+4. Turn District on in a chat and ask.
 
-- 💳 **Quick Checkout for Movies** – Seamless movie ticket purchasing with integrated payments, enabling end-to-end booking directly through the MCP.
-- 🎭 **Event Discovery** – Discover and explore events, concerts, activities, and experiences across cities.
-- 🗺️ **Outing Planner** – Plan your complete outing — discover must-visit places, restaurants, and experiences near popular tourist attractions, all in one go.
-- 🛒 **Unified Checkout** – A single, streamlined checkout experience spanning movies, dining, events, and activities — all in one flow.
-- 🎾 **Sports Discovery** – Explore courts and sports hubs to play, compete, and stay active.
+### Cursor
 
+Add this to `~/.cursor/mcp.json`, or to `.cursor/mcp.json` in your project. Then sign in to District from Cursor's MCP settings when asked, and ask in chat.
+
+```json
+{
+  "mcpServers": {
+    "district": {
+      "url": "https://mcp-server.district.in/v2/mcp"
+    }
+  }
+}
+```
+
+### VS Code
+
+Works in VS Code and VS Code Insiders.
+
+<b>One-click installation</b>
+
+[![Install MCP](https://img.shields.io/badge/Install-DistrictMCP-E23744)](https://insiders.vscode.dev/redirect?url=vscode:mcp/install?%7B%22name%22%3A%22district%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp-server.district.in%2Fv2%2Fmcp%22%7D)
+
+<b>Manual installation</b>
+
+Add this to your `mcp.json` file, start the server and sign in with District when asked.
+
+```json
+{
+  "servers": {
+    "district": {
+      "type": "http",
+      "url": "https://mcp-server.district.in/v2/mcp"
+    }
+  }
+}
+```
+
+### Claude Code
+
+Run this in your terminal, then run `/mcp` in Claude Code, pick `district` and sign in.
+
+```bash
+claude mcp add --transport http district https://mcp-server.district.in/v2/mcp
+```
+
+### Try it
+
+Once connected, ask:
+
+> "Find restaurants near me that are good for dinner."
+
+## FAQ
+
+**What is the District MCP server?**
+It connects District to AI apps like Claude and ChatGPT. MCP (Model Context Protocol) is the open standard AI apps use to connect to tools. Once District is added, you can ask your assistant to find a movie, book a table or pay a bill on District.
+
+**Do I need to log in?**
+No. You can start as a guest and look around. To book, pay or see your bookings, log in with your mobile number and an OTP, either on the sign-in page or later from the chat.
+
+**How do bookings and payments work?**
+Before it books or pays, your assistant shows you what it's about to do and waits for your yes. You pay with a saved UPI ID or by scanning a UPI QR; cards, netbanking and wallets are in the District app. Cancellations go through only when your AI app asks you to confirm them; otherwise you cancel in the District app.
+
+**How do I report a problem or share feedback?**
+Use the feedback form at [studio.district.in/mcp](https://studio.district.in/mcp/#feedback) or write to [developers@district.in](mailto:developers@district.in). Include the prompt you used and what came back so we can look into it quickly.
 
 ## Disclaimer
-- We are not allowing any third party apps to be built on top of District MCP right now due to security and legal considerations. Please reach out to us for any integration discussions.
+
+- The connector is for personal use. We are not allowing third-party apps to be built on top of District MCP right now due to security and legal considerations. If you want District in your product, write to [developers@district.in](mailto:developers@district.in) and tell us what you're building.
 
 - This is only for testing purposes and District disclaims any and all liabilities that may arise due to erroneous / non-functionality of the MCP integration.
