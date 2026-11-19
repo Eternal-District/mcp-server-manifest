@@ -19,7 +19,7 @@ Everything runs through four core tools. Your assistant finds what it needs with
 | `act` | Runs an operation that changes something: holds seats or a court, books, cancels or saves to a list. It runs only after you confirm. |
 | `pay` | Starts the UPI payment for a booking or bill, with the method you picked. It runs only after you confirm the amount and method. |
 
-Supporting tools: `pay` comes with `payment_options` (the UPI QR to pay with) and `payment_status` (checks whether the payment went through). Signing in from the chat uses `generate_otp`, `resend_otp` and `validate_otp`.
+Supporting tools: `pay` comes with `payment_options` (the UPI QR to pay with), `payment_status` (checks whether the payment went through) and `cancel_payment` (cancels a payment you didn't finish, after you confirm). Signing in from the chat uses `generate_otp`, `resend_otp` and `validate_otp`.
 
 ## What it can do
 
